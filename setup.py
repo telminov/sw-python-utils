@@ -14,7 +14,7 @@ setup(
     ],
     include_package_data=True,
     license='The MIT License',
-    test_suite='runtests.runtests',
+    test_suite='nose.collector',
     install_requires=[
         'netifaces', 'pycrypto'
     ],

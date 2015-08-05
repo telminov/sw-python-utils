@@ -5,6 +5,6 @@ install:
   - pip install -r requirements.txt
   - pip install coveralls
 script:
-  - coverage run --source=swutils setup.py test
+  - coverage run --source=swutils setup.py nosetests
 after_success:
   - coveralls
