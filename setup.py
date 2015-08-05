@@ -1,6 +1,6 @@
 # coding: utf-8
 # python setup.py sdist register upload
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='sw-python-utils',
@@ -8,8 +8,13 @@ setup(
     description='Soft Way company python utils.',
     author='Telminov Sergey',
     url='https://github.com/telminov/sw-python-utils',
-    packages=['swutils', 'swutils.tests',],
+    packages=[
+        'swutils',
+        'swutils.tests',
+    ],
+    include_package_data=True,
     license='The MIT License',
+    test_suite='runtests.runtests',
     install_requires=[
         'netifaces', 'pycrypto'
     ],
