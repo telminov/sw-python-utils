@@ -6,7 +6,7 @@ class CanonicalPhoneGenerationException(Exception):
     pass
 
 
-def gen_canonical_phone(original_phone):
+def gen_canonical_phone(original_phone, first_number='7', check_code=True):
     # удалим все не цифровые символы
     phone = re.sub('\D', '', original_phone)
 
@@ -16,11 +16,11 @@ def gen_canonical_phone(original_phone):
     # избавимся от ведущей цифры 11ти значного номера
     phone = phone[-10:]
 
-    if phone[0] != '9':
+    if check_code and phone[0] != '9':
         raise CanonicalPhoneGenerationException('Код города должен начинатся с 9 (%s)' % original_phone)
 
     # установим ведущую семерку
-    phone = '7%s' % phone
+    phone = '%s%s' % (first_number, phone)
 
     return phone
 
