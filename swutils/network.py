@@ -1,6 +1,7 @@
 # coding: utf-8
 import re
-import netifaces
+import subprocess
+
 
 def get_ip4():
     """
@@ -8,11 +9,12 @@ def get_ip4():
     :return:
     """
     addresses = []
-    for name in netifaces.interfaces():
-        for info_array in netifaces.ifaddresses(name).values():
-            for info in info_array:
-                if info.get('addr'):
-                    addr = info['addr']
-                    if re.match(r'\d{1,4}\.\d{1,4}\.\d{1,4}\.\d{1,4}', addr):
-                        addresses.append(addr)
+
+    shell_cmd = "ifconfig | awk '/inet addr/{print substr($2,6)}'"
+    proc = subprocess.Popen([shell_cmd], stdout=subprocess.PIPE, shell=True)
+    (out, err) = proc.communicate()
+    ip_addresses = out.split('\n')
+    for addr in ip_addresses:
+        if re.match(r'\d{1,4}\.\d{1,4}\.\d{1,4}\.\d{1,4}', addr):
+             addresses.append(addr)
     return addresses
