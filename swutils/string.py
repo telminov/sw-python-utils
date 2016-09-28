@@ -26,8 +26,8 @@ def map_rus_to_lat(char):
 
 def transliterate(text, space=u' '):
     symbols = (
-        u"абвгдеёзийклмнопрстуфхъыьэАБВГДЕЁЗИЙКЛМНОПРСТУФХЪЫЬЭ" + u' ',
-        u"abvgdeezijklmnoprstufh'y'eABVGDEEZIJKLMNOPRSTUFH'Y'E" + space,
+        u"абвгдеёзийклмнопрстуфхъыьэАБВГДЕЁЗИЙКЛМНОПРСТУФХЪЫЬЭ№" + u' ',
+        u"abvgdeezijklmnoprstufh'y'eABVGDEEZIJKLMNOPRSTUFH'Y'E#" + space,
     )
 
     sequence = {
