@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='sw-python-utils',
-    version='0.0.13',
+    version='0.0.15',
     description='Soft Way company python utils.',
     author='Telminov Sergey',
     url='https://github.com/telminov/sw-python-utils',

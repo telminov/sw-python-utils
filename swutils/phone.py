@@ -11,13 +11,13 @@ def gen_canonical_phone(original_phone, first_number='7', check_code=True):
     phone = re.sub('\D', '', original_phone)
 
     if not (10 <= len(phone) <= 11):
-        raise CanonicalPhoneGenerationException('Номер должен состоять из 10 или 11 цифр (%s)' % int(original_phone))
+        raise CanonicalPhoneGenerationException('Номер должен состоять из 10 или 11 цифр (%s)' % str(original_phone))
 
     # избавимся от ведущей цифры 11ти значного номера
     phone = phone[-10:]
 
     if check_code and phone[0] != '9':
-        raise CanonicalPhoneGenerationException('Код города должен начинатся с 9 (%s)' % int(original_phone))
+        raise CanonicalPhoneGenerationException('Код города должен начинатся с 9 (%s)' % str(original_phone))
 
     # установим ведущую семерку
     phone = '%s%s' % (first_number, phone)
