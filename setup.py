@@ -16,6 +16,6 @@ setup(
     license='The MIT License',
     test_suite='nose.collector',
     install_requires=[
-        'pycrypto', 'requests', 'beautifulsoup4', 'phonenumbers'
+        'pycrypto', 'requests', 'beautifulsoup4', 'phonenumbers', 'future'
     ],
 )
