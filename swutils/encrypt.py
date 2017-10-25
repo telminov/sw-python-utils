@@ -35,5 +35,8 @@ def _pad(text, size=16):
 
 def _unpad(text):
     if isinstance(text, bytes):
-        text = text.decode('utf-8')
+        try:
+            text = text.decode('utf-8')
+        except UnicodeDecodeError:
+            text = text.decode('cp1251')
     return text[0:-ord(text[-1])]
