@@ -38,5 +38,8 @@ def _unpad(text):
         try:
             text = text.decode('utf-8')
         except UnicodeDecodeError:
-            text = text.decode('cp1251')
+            try:
+                text = text.decode('cp1251')
+            except UnicodeDecodeError:
+                return text
     return text[0:-ord(text[-1])]
