@@ -7,7 +7,7 @@ from Crypto.Cipher import AES
 def encrypt(raw, key):
     cipher = AES.new(_hash_key(key=key), AES.MODE_ECB)
     padded = _pad(raw)
-    encrypted = cipher.encrypt(padded)
+    encrypted = cipher.encrypt(padded.encode())
     encoded = base64.b64encode(encrypted)
     return encoded
 
