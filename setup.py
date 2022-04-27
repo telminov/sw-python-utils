@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='sw-python-utils',
-    version='0.0.17',
+    version='0.0.18',
     description='Soft Way company python utils.',
     author='Telminov Sergey',
     url='https://github.com/telminov/sw-python-utils',
@@ -16,6 +16,6 @@ setup(
     license='The MIT License',
     test_suite='nose.collector',
     install_requires=[
-        'pycrypto', 'requests', 'beautifulsoup4', 'phonenumbers'
+        'pycryptodome', 'requests', 'beautifulsoup4', 'phonenumbers'
     ],
 )
